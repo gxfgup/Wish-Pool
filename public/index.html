@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>神秘许愿池</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div id="stars"></div>
+    <div class="app">
+      <header class="header">
+        <div class="title">神秘许愿池</div>
+        <div class="subtitle">在截止前投下你的愿望，等一场神秘的交换</div>
+      </header>
+
+      <main class="main">
+        <section class="card fade" id="authCard">
+          <div class="cardTitle">登录 / 注册</div>
+          <div class="statusGrid">
+            <div class="stat">
+              <div class="statLabel">当前进度</div>
+              <div class="statValue" id="authProgress">-</div>
+            </div>
+            <div class="stat">
+              <div class="statLabel">截止倒计时</div>
+              <div class="statValue" id="authCountdown">-</div>
+            </div>
+          </div>
+          <div class="row">
+            <label class="label">手机号</label>
+            <input class="input" id="phone" placeholder="11位手机号" inputmode="numeric" maxlength="11" />
+          </div>
+          <div class="row">
+            <label class="label">4位密码</label>
+            <input class="input" id="password" placeholder="例如 1234" inputmode="numeric" maxlength="4" type="password" />
+          </div>
+          <div class="actions">
+            <button class="btn" id="btnLogin">登录</button>
+            <button class="btn btnGhost" id="btnRegister">注册</button>
+          </div>
+          <div class="hint" id="authHint"></div>
+        </section>
+
+        <section class="card fade hidden" id="wellCard">
+          <div class="wellWrap">
+            <div class="well" id="well">
+              <div class="wellGlow"></div>
+              <div class="wellInner"></div>
+            </div>
+          </div>
+
+          <div class="statusGrid">
+            <div class="stat">
+              <div class="statLabel">进度</div>
+              <div class="statValue" id="progress">-</div>
+            </div>
+            <div class="stat">
+              <div class="statLabel">截止倒计时</div>
+              <div class="statValue" id="countdown">-</div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div id="phaseWish" class="fade">
+            <div class="cardTitle">投递愿望</div>
+            <textarea class="textarea" id="wishText" placeholder="写下一个 100 元以内的愿望..." maxlength="200"></textarea>
+            <div class="actions">
+              <button class="btn" id="btnSubmitWish">投递</button>
+              <button class="btn btnGhost" id="btnLogout">退出登录</button>
+            </div>
+            <div class="hint" id="wishHint"></div>
+
+            <details class="details" id="myWishPanel">
+              <summary>愿望清单（仅自己可见）</summary>
+              <div class="detailsBody" id="myWishBody">-</div>
+            </details>
+          </div>
+
+          <div id="phaseReveal" class="fade hidden">
+            <div class="cardTitle">揭晓</div>
+            <div class="revealBox" id="revealBox">-</div>
+            <div class="actions">
+              <button class="btn btnGhost" id="btnLogout2">退出登录</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card fade hidden" id="adminCard">
+          <div class="cardTitle">管理员设置</div>
+          <div class="row">
+            <label class="label">最大愿望数量</label>
+            <input class="input" id="adminMaxWishes" inputmode="numeric" />
+          </div>
+          <div class="row">
+            <label class="label">截止时间</label>
+            <input class="input" id="adminDeadline" type="datetime-local" />
+          </div>
+          <div class="actions">
+            <button class="btn" id="btnAdminSave">保存设置</button>
+            <button class="btn btnGhost" id="btnAdminAssign">随机分配</button>
+          </div>
+          <div class="actions">
+            <button class="btn btnGhost" id="btnAdminResetPool">重置许愿池</button>
+            <button class="btn btnGhost" id="btnAdminResetDb">重置数据库</button>
+            <button class="btn btnGhost" id="btnAdminExport">导出 CSV</button>
+          </div>
+          <div class="hint" id="adminHint"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span class="footerText" id="footerAdmin">Admin</span>
+      </footer>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
