@@ -12,7 +12,7 @@ npm start
 
 3. 打开：
 
-- http://localhost:3000
+- http://localhost:2000
 
 数据库文件默认位置：`./data/wishpool.sqlite`（首次运行会自动创建）
 
@@ -60,3 +60,4 @@ docker compose up -d --build
 - 重置许愿池（清空愿望，不清空用户）
 - 重置数据库（清空愿望与用户）
 - 导出 CSV
+
