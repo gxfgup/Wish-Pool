@@ -1,0 +1,12 @@
+services:
+  wishing-well:
+    build: .
+    container_name: wishing-well
+    ports:
+      - "2000:2000"
+    environment:
+      - PORT=2000
+      - DB_PATH=/data/wishpool.sqlite
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
